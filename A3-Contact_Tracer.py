@@ -9,29 +9,37 @@
 
 contactPersons={}
 
-userOption=(input("Select your option: "))
+while True:
+    userOption=(input("Select your option: "))
 
-if userOption=='1':
-    contactName=input("Please enter your full name: ")
-    contactAge=int(input("Enter your age: "))
-    contactNumber=int(input("Enter your contact number: "))
-    contactAddress=input("Enter your present address: ")
-    contactVax=input("Please state if you have been vaccinated already (Yes)/(No): ")
+    if userOption=='1':
+        contactName=input("Please enter your full name: ")
+        contactAge=int(input("Enter your age: "))
+        contactNumber=int(input("Enter your contact number: "))
+        contactAddress=input("Enter your present address: ")
+        contactVax=input("Please state if you have been vaccinated already (Yes)/(No): ")
 
-    contactPersons[contactName]={}
-    contactPersons[contactName]['Full name']=contactName
-    contactPersons[contactName]['Age']=contactAge
-    contactPersons[contactName]['Contact Number']=contactNumber
-    contactPersons[contactName]['Present Address']=contactAddress
-    contactPersons[contactName]['Vaccine Status']=contactVax
+        contactPersons[contactName]={}
+        contactPersons[contactName]['Full name']=contactName
+        contactPersons[contactName]['Age']=contactAge
+        contactPersons[contactName]['Contact Number']=contactNumber
+        contactPersons[contactName]['Present Address']=contactAddress
+        contactPersons[contactName]['Vaccine Status']=contactVax
 
-elif userOption=='2':
-    contactSearch=input("Enter the full name of your desired contact: ")
-    if contactSearch in contactPersons:          
-        for searchedName, searchedValues in contactPersons.items():
-            if contactSearch==searchedName: 
-                for nameKey in searchedValues:
-                    print(nameKey,':',searchedValues[nameKey])
+    elif userOption=='2':
+        contactSearch=input("Enter the full name of your desired contact: ")
+        if contactSearch in contactPersons:          
+            for searchedName, searchedValues in contactPersons.items():
+                if contactSearch==searchedName: 
+                    for nameKey in searchedValues:
+                        print(nameKey,':',searchedValues[nameKey])
+    
+    else:
+        print("Incorrent input or Contact person does not exist.")
+    
+    programPrompt=input("Do you want to continue with the program? ")
+    if programPrompt=="n":
+        break
 
 #for key, value in contactPersons:
 	#print(key, “ : ”, value)
