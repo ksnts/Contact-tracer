@@ -9,7 +9,7 @@
 
 contactPersons={}
 
-userOption=int(input("Select your option: "))
+userOption=(input("Select your option: "))
 
 if userOption=='1':
     contactName=input("Please enter your full name: ")
@@ -27,9 +27,11 @@ if userOption=='1':
 
 elif userOption=='2':
     contactSearch=input("Enter the full name of your desired contact: ")
-    if contactSearch in contactPersons:
-        for key in contactPersons:
-            print(key,':',contactPersons[key])
+    if contactSearch in contactPersons:          
+        for searchedName, searchedValues in contactPersons.items():
+            if contactSearch==searchedName: 
+                for nameKey in searchedValues:
+                    print(nameKey,':',searchedValues[nameKey])
 
 #for key, value in contactPersons:
 	#print(key, “ : ”, value)
