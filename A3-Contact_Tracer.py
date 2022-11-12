@@ -10,14 +10,27 @@
 contactPersons={}
 
 while True:
-    userOption=(input("Select your option: "))
+    print("///////////////////////////")
+    print("  CONTACT TRACER PROGRAM")
+    print("///////////////////////////")
+    print("\n///////////////////////////")
+    print("Welcome to the Main Menu!")
+    print("\nThese are your options: ")
+    print("(1) Add a contact")
+    print("(2) Search for a contact")
+    print("(3) Exit the program")
+    print("///////////////////////////")
+    userOption=(input("\nSelect your option (1-3): "))
 
     if userOption=='1':
+        print("//////////////////////////////////////////////////////")
         contactName=input("Please enter your full name: ")
         contactAge=int(input("Enter your age: "))
         contactNumber=int(input("Enter your contact number: "))
         contactAddress=input("Enter your present address: ")
         contactVax=input("Please state if you have been vaccinated already (Yes)/(No): ")
+        print("\nThank you! Process Done.")
+        print("//////////////////////////////////////////////////////")
 
         contactPersons[contactName]={}
         contactPersons[contactName]['Full name']=contactName
@@ -27,21 +40,26 @@ while True:
         contactPersons[contactName]['Vaccine Status']=contactVax
 
     elif userOption=='2':
+        print("///////////////////////////")
         contactSearch=input("Enter the full name of your desired contact: ")
+        print()
         if contactSearch in contactPersons:          
             for searchedName, searchedValues in contactPersons.items():
                 if contactSearch==searchedName: 
                     for nameKey in searchedValues:
                         print(nameKey,':',searchedValues[nameKey])
+                        print("///////////////////////////")
+        else:
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            print("Incorrect input or Contact person does not exist.")
+            print("Please check your spelling and try again.")
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
     
-    else:
-        print("Incorrent input or Contact person does not exist.")
-    
-    programPrompt=input("Do you want to continue with the program? ")
+    print("!******************************************************!")
+    programPrompt=input("   Do you want to continue with the program? (y)/(n): ")
     if programPrompt=="n":
+        print("     Thank you, come again")
         break
 
-#for key, value in contactPersons:
-	#print(key, “ : ”, value)
 
 
